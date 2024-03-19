@@ -11,7 +11,7 @@ jobs:
       - name: Run the script
         run: |
           if [[ "$(docker images -q my-node-app 2> /dev/null)" == "" ]]; then
-            docker build -t --replace my-node-app:0.1 .
+            docker build -t my-node-app:0.1 .
           fi  
           
           docker run --replace -p 4000:80 --name my-IaC-app -d my-node-app:0.1
