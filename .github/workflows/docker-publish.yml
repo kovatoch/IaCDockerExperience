@@ -9,4 +9,6 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Run the script
-        run: docker build -t my-node-app:0.1 .
+        run: |
+          docker build -t my-node-app:0.1 . /
+          docker run -p 4000:80 --name my-IaC-app -d my-node-app:0.1
