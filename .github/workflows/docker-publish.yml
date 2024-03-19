@@ -1,0 +1,12 @@
+name: Self Hosted Runner
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Run the script
+        run: docker build -t my-node-app:0.1 .

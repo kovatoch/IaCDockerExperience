@@ -1,6 +1,6 @@
 # IaCDockerExperience
 
-docker build -t node-app:0.1 .
+docker build -t my-node-app:0.1 .
 
 docker run -p 4000:80 --name my-IaC-app -d my-node-app:0.1
 
