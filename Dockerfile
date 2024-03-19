@@ -16,4 +16,4 @@ RUN npm install -g yarn --force
 
 RUN yarn -v
 
-CMD ["node", "app.js"]
+CMD ["node", "./app.js"]
