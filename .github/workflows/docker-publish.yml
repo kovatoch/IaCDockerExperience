@@ -14,5 +14,5 @@ jobs:
             docker build -t --replace my-node-app:0.1 .
           fi  
           
-          docker run -p 4000:80 --name my-IaC-app -d my-node-app:0.1
+          docker run --replace -p 4000:80 --name my-IaC-app -d my-node-app:0.1
           curl http://0.0.0.0:4000
