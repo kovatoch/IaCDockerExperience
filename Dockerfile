@@ -1,14 +1,19 @@
-# Use an official Node runtime as the parent image
-FROM node:lts
+ARG NODE_VERSION=18.16.0
+ARG ALPINE_VERSION=3.17.2
 
-# Set the working directory in the container to /app
-WORKDIR /app
+FROM node:${NODE_VERSION}-alpine AS node
 
-# Copy the current directory contents into the container at /app
-ADD . /app
+FROM alpine:${ALPINE_VERSION}
 
-# Make the container's port 80 available to the outside world
-EXPOSE 80
+COPY --from=node /usr/lib /usr/lib
+COPY --from=node /usr/local/lib /usr/local/lib
+COPY --from=node /usr/local/include /usr/local/include
+COPY --from=node /usr/local/bin /usr/local/bin
 
-# Run app.js using node when the container launches
+RUN node -v
+
+RUN npm install -g yarn --force
+
+RUN yarn -v
+
 CMD ["node", "app.js"]
