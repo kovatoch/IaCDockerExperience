@@ -12,4 +12,3 @@ jobs:
         run: |
           docker build -t my-node-app:0.1 .
           docker run -p 4000:80 --name my-IaC-app -d my-node-app:0.1
-          curl localhost:4000 > curl-result
