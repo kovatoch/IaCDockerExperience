@@ -11,7 +11,7 @@ jobs:
       - name: Run the script
         run: |
           if [[ "$(podman images -q iaccontainer 2> /dev/null)" == "" ]]; then
-            docker build -t iaccontainer .
+            podman build -t iaccontainer .
           fi  
           
           podman run -d --name my_new_iaccontainer iaccontainer:latest
