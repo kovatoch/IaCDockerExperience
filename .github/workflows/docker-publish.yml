@@ -15,11 +15,9 @@ jobs:
           fi  
           
           podman run -d --name my_new_iaccontainer \
-            -e "GITHUB_OUTPUT=/github-output" \
-            -v "$GITHUB_OUTPUT:/github-output" \
             iaccontainer:latest >> $GITHUB_OUTPUT
           podman logs my_new_iaccontainer
           podman stop my_new_iaccontainer && podman rm my_new_iaccontainer
 
-          echo $GITHUB_OUTPUT
+          #echo $GITHUB_OUTPUT
         
