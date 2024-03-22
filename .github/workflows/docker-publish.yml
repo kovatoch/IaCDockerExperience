@@ -10,9 +10,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Run the script
         run: |
-          if [[ "$(docker images -q my-node-app 2> /dev/null)" == "" ]]; then
-            docker build -t my-node-app:0.1 .
+          if [[ "$(podman images -q iaccontainer 2> /dev/null)" == "" ]]; then
+            docker build -t iaccontainer .
           fi  
           
-          docker run --replace -p 4000:80 --name my-IaC-app -d my-node-app:0.1
-          curl http://0.0.0.0:4000
+          podman run -d --name my_new_iaccontainer iaccontainer:latest
+
+          podman stop my_new_iaccontainer && podman rm my_new_iaccontainer
