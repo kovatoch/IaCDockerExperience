@@ -13,11 +13,8 @@ jobs:
           if [[ "$(podman images -q iaccontainer 2> /dev/null)" == "" ]]; then
             podman build -t iaccontainer .
           fi  
-          
-          {
-            podman run -d --name my_new_iaccontainer \
-            iaccontainer:latest 
-          } >> $GITHUB_OUTPUT
+          podman run -d --name my_new_iaccontainer iaccontainer:latest 
+           
           podman logs my_new_iaccontainer
           podman stop my_new_iaccontainer && podman rm my_new_iaccontainer
         
