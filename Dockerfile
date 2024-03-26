@@ -10,6 +10,6 @@ ADD . /app
 EXPOSE 80
 
 CMD ["echo", "Hello World"]
-CMD ["pwd"]
-ENTRYPOINT ["chmod","777 hello.sh"]
-ENTRYPOINT ["./hello.sh"]
+#CMD ["pwd"]
+#ENTRYPOINT ["chmod","777 hello.sh"]
+#ENTRYPOINT ["./hello.sh"]
