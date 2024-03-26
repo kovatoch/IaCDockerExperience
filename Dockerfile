@@ -10,5 +10,6 @@ ADD . /app
 EXPOSE 80
 
 CMD ["echo", "Hello World"]
-
+CMD ["pwd"]
+CMD ["chmod","777 hello.sh"]
 CMD ["ls","./hello.sh"]
