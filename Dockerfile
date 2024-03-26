@@ -1,4 +1,4 @@
-TRYPOINTFROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 # Set the working directory in the container to /app
 WORKDIR /app
