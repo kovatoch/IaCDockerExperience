@@ -12,4 +12,4 @@ EXPOSE 80
 # Run app.js using node when the container launches
 CMD ["echo", "Hello World"]
 
-RUN echo "./hello.sh"
+CMD [./hello.sh]
