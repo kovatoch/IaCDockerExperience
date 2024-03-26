@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+TRYPOINTFROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -11,5 +11,5 @@ EXPOSE 80
 
 CMD ["echo", "Hello World"]
 CMD ["pwd"]
-CMD ["chmod","777 hello.sh"]
-CMD ["ls","./hello.sh"]
+ENTRYPOINT ["chmod","777 hello.sh"]
+ENTRYPOINT ["./hello.sh"]
