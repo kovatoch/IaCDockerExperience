@@ -9,7 +9,10 @@ ADD . /app
 # Make the container's port 80 available to the outside world
 EXPOSE 80
 
+COPY hello.sh /app/hello.sh
+
+RUN chmod +x /app/hello.sh
+
+RUN /app/hello.sh
+
 CMD ["echo", "Hello World"]
-#CMD ["pwd"]
-#ENTRYPOINT ["chmod","777 hello.sh"]
-#ENTRYPOINT ["./hello.sh"]
