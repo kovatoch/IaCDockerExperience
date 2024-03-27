@@ -15,4 +15,4 @@ RUN chmod +x /app/hello.sh
 
 RUN /app/hello.sh
 
-CMD ["echo", "Hello World"]
+#CMD ["echo", "Hello World"]
