@@ -10,11 +10,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Run the script
         run: |
-          if [[ "$(podman images -q iaccontainer 2> /dev/null)" == "" ]]; then
+          if [[ "$(podman images -q testshellchech 2> /dev/null)" == "" ]]; then
             podman build -t iaccontainer .
           fi  
+          
           podman run -d --name my_new_iaccontainer iaccontainer:latest 
-           
-          podman logs my_new_iaccontainer
-          podman stop my_new_iaccontainer && podman rm my_new_iaccontainer
-        
+          podman run --rm -v ${GITHUB_WORKSPACE}\stop.sh:/script.sh testshellcheck /script.sh > ${GITHUB_WORKSPACE}\output.txt
+
+          cat ${GITHUB_WORKSPACE}\output.txt
